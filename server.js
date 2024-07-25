@@ -18,13 +18,17 @@ const app = express();
 app.use(express.json());
 app.use(morgan('dev'));
 
+
+//routes
+app.use('/api/v1/auth', require('./routes/authRoute'));
+
 //rest api
 app.get('/', (req, res) => {
     res.send('<h1>Welcome To GP-LACHWAI</h1>');
 });
 
 //PORT
-const PORT = process.env.PORT || 9000;
+const PORT = process.env.PORT || 8080;
 
 
 //RUN LISTEN
