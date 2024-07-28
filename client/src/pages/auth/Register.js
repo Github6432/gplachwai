@@ -34,9 +34,9 @@ const Register = () => {
 
         if (success) {
             toast.success('User Registered Successfully');
-            setTimeout(() => {
-                window.location.href = '/login';
-            }, 4000);
+            // setTimeout(() => {
+            //     window.location.href = '/login';
+            // }, 4000);
         }
     }, [loading, error, success]);
 
@@ -84,6 +84,7 @@ const Register = () => {
                         <select value={role} onChange={(e) => setRole(e.target.value)} className="form-control" id="exampleInputRole">
                             <option value="user">User</option>
                             <option value="admin">Admin</option>
+                            <option value="controller">User Controller</option>
                         </select>
                     </div>
                     <div>

@@ -6,6 +6,12 @@ const { hashPassword, comparePassword } = require("../helpers/authHelper");
 const registerController = async (req, res) => {
     try {
         const { name, fatherName, email, dob, password, phone, address, role } = req.body;
+        let authority;
+        if (role === 'controller') {
+            authority = 'no';
+        } else {
+            authority = 'yes';
+        }
         //validation
         if (!name) { return res.send({ error: 'Name is Required' }) };
         if (!fatherName) { return res.send({ error: 'Father Name is Required' }) };
@@ -22,8 +28,8 @@ const registerController = async (req, res) => {
         //hashed password
         const hashedPassword = await hashPassword(password);
         //save user
-        const user = await new userModel({ name, fatherName, email, dob, phone, address, role, password: hashedPassword }).save();
-        res.status(200).send({ success: true, message: 'User Register Successfully', user });
+        const user = await new userModel({ name, fatherName, email, dob, phone, address, role, authority, password: hashedPassword }).save();
+        await res.status(200).send({ success: true, message: 'User Register Successfully', user });
 
     } catch (error) {
         console.log(error)
