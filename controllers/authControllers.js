@@ -102,6 +102,14 @@ const forgetPasswordController = async (req, res) => {
     }
 };
 
+const testController = (req, res) => {
+    try {
+        console.log('Protected Routed')
+    } catch (error) {
+        console.log('ERROR IN TEST CONTROLLER', error)
+    }
+}
 
 
-module.exports = { registerController, loginController, forgetPasswordController };
+
+module.exports = { registerController, loginController, forgetPasswordController, testController };
