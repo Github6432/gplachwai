@@ -71,7 +71,7 @@ const Header = () => {
                                         <Link className='dropdown-item' to={'/handpumplist'}>Ration Card</Link>
                                     </li>
                                     <li>
-                                        <Link className='dropdown-item' to={'/pmvishvkarmalist'}>Hand Pump</Link>
+                                        <Link className='dropdown-item' to={'/handpumpreport'}>Hand Pump</Link>
                                     </li>
                                     <li>
                                         <Link className='dropdown-item' to={'/meatinglist'}>Meating</Link>

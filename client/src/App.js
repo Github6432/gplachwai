@@ -14,6 +14,7 @@ import ControllerDashboard from './pages/auth/controller/ControllerDashboard';
 import PrivateRoute from './components/Routes/PrivateRoute';
 import AllUsers from './pages/auth/AllUsers';
 import Handpump from './pages/Handpump';
+import HandPumpList from './pages/HandPumpList';
 
 function App() {
   return (
@@ -27,16 +28,17 @@ function App() {
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/policy' element={<Policy />} />
-          <Route path='handpump' element={<Handpump />} />
+        <Route path='/handpumpreport' element={<HandPumpList />} />
         <Route path='/*' element={<PageNotFound />} />
         <Route path='/admin' element={<PrivateRoute />}>
           <Route path='dashboard' element={<AdminDashboard />} />
           <Route path='getallusers' element={<AllUsers />} />
+          <Route path='handpump' element={<Handpump />} />
         </Route>
         <Route path='/controller' element={<PrivateRoute />}>
           <Route path='dashboard' element={<ControllerDashboard />} />
           <Route path='getallusers' element={<AllUsers />} />
-          {/* <Route path='handpump' element={<Handpump />} /> */}
+          <Route path='handpump' element={<Handpump />} />
         </Route>
       </Routes> 
 

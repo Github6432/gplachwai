@@ -2,13 +2,14 @@ import axios from 'axios';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import {thunk} from 'redux-thunk';  // Corrected import
 import { getAllUsersReducer, loginUserReducer, registerUserReducer } from './reducers/userReducer';
-import { registerHandpumpReducer } from './reducers/handpumpReducers';
+import { getHandpumpReducer, registerHandpumpReducer } from './reducers/handpumpReducers';
 
 const rootReducer = combineReducers({
     registerUserReducer: registerUserReducer,
     loginUserReducer: loginUserReducer,
     getAllUsersReducer: getAllUsersReducer,
     registerHandpumpReducer: registerHandpumpReducer,
+    getHandpumpReducer: getHandpumpReducer,
     // other reducers can be added here
 });
 
