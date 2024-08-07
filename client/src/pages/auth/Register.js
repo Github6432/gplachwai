@@ -19,24 +19,23 @@ const Register = () => {
 
     const registerState = useSelector(state => state.registerUserReducer);
     const { loading, success, error } = registerState;
+    console.log('eeeeeRRR',registerState)
+    console.log('eeeee',error)
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if (loading) {
+        if (success) {
             toast.loading('Registering user...');
         } else {
             toast.dismiss();
         }
 
         if (error) {
-            toast.error('Something went wrong when User Register');
+            toast.error(error);
         }
 
         if (success) {
-            toast.success('User Registered Successfully');
-            // setTimeout(() => {
-            //     window.location.href = '/login';
-            // }, 4000);
+            toast.success('User Registered Successfully 123');
         }
     }, [loading, error, success]);
 
@@ -49,6 +48,11 @@ const Register = () => {
         } else {
             const user = { name, fatherName, email, dob, password, confirmPassword, phone, address, role };
             dispatch(registerUser(user))
+        }
+        if (success) {
+            // setTimeout(() => {
+            //     window.location.href = '/login';
+            // }, 3000);
         }
     }
     return (

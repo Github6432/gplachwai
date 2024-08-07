@@ -8,20 +8,37 @@ import PageNotFound from './pages/PageNotFound';
 import Register from './pages/auth/Register';
 import Login from './pages/auth/Login';
 import ForgetPassword from './pages/auth/ForgetPassword';
+import Dashboard from './pages/auth/user/Dashboard';
+import AdminDashboard from './pages/auth/admin/AdminDashboard';
+import ControllerDashboard from './pages/auth/controller/ControllerDashboard';
+import PrivateRoute from './components/Routes/PrivateRoute';
+import AllUsers from './pages/auth/AllUsers';
+import Handpump from './pages/Handpump';
 
 function App() {
   return (
     <>
       <Routes>
         <Route path='/' element={<Homepage />} />
+        <Route path='/user/dashboard' element={<Dashboard />} />
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
         <Route path='/forgetpassword' element={<ForgetPassword />} />
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/policy' element={<Policy />} />
+          <Route path='handpump' element={<Handpump />} />
         <Route path='/*' element={<PageNotFound />} />
-      </Routes>
+        <Route path='/admin' element={<PrivateRoute />}>
+          <Route path='dashboard' element={<AdminDashboard />} />
+          <Route path='getallusers' element={<AllUsers />} />
+        </Route>
+        <Route path='/controller' element={<PrivateRoute />}>
+          <Route path='dashboard' element={<ControllerDashboard />} />
+          <Route path='getallusers' element={<AllUsers />} />
+          {/* <Route path='handpump' element={<Handpump />} /> */}
+        </Route>
+      </Routes> 
 
     </>
   );

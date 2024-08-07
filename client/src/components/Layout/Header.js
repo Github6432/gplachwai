@@ -12,7 +12,7 @@ const Header = () => {
 
     return (
         <>
-            <nav className="navbar navbar-expand-lg bg-body-tertiary">
+            <nav className="mx-3 navbar navbar-expand-lg bg-body-tertiary">
                 <div className="container-fluid">
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon" />
@@ -31,7 +31,7 @@ const Header = () => {
                                                 <Link className="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown"  >{currentUser.user.name}</Link>
                                                 <ul className="dropdown-menu">
                                                     <li>
-                                                        <Link className='dropdown-item' to={'/dashboard'}>Dashboard</Link>
+                                                        <Link className='dropdown-item' to={`/${currentUser.user.role}/dashboard`}>Dashboard</Link>
                                                     </li>
                                                     <li>
                                                         <Link className='dropdown-item' onClick={() => { dispatch(logoutUser()) }} >Logout</Link>

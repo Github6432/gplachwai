@@ -3,9 +3,9 @@ export const registerUserReducer = (state = {}, action) => {
         case 'USER_REGISTER_REQUEST':
             return { loading: true }
         case 'USER_REGISTER_SUCCESS':
-            return { loading: false, success: true }
+            return { loading: false, success: true, res: action.payload }
         case 'USER_REGISTER_FAIL':
-            return { loading: false, error: action.payload }
+            return {loading:false, success: false,error: action.payload }
         default: return state
     }
 }
@@ -22,4 +22,30 @@ export const loginUserReducer = (state = {}, action) => {
         default: return  state 
     }
 }
+
+
+export const getAllUsersReducer = (state = {users: []}, action) => {
+    switch (action.type) {
+        case 'GET_ALL_USER_REQUEST':
+            return { loading: true } 
+        case 'GET_ALL_USER_SUCCESS':
+            return { loading: false, success: true, users: action.payload }
+        case 'GET_ALL_USER_FAIL':
+            return { loading: false, error: action.payload }
+        default: return  state;
+    }
+}
+
+export const editUserRoleReducer = (state = {}, action) => {
+    switch (action.type) {
+        case 'USER_ROLE_CHANGE_REQUEST':
+            return { loading: true }
+        case 'USER_ROLE_CHANGE_SUCCESS':
+            return { loading: false, success: true, users: action.payload }
+        case 'USER_ROLE_CHANGE_FAIL':
+            return { loading: false, error: action.payload }
+        default: return state 
+    }
+}
+
 

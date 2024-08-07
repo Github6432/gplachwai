@@ -16,4 +16,9 @@ router.post('/testa',requireSignIn, isAdmin, testController)
 //test access
 router.post('/testc',requireSignIn, isAdmin, isController, testController)
 
+//protectes routed
+router.get('/user-auth', requireSignIn, (req, res) => {
+    res.status(200).send({ok: true});
+});
+
 module.exports = router

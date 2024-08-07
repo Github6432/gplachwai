@@ -1,22 +1,23 @@
 import React from 'react'
 import Layout from '../../../components/Layout/Layout'
-import AdminMenu from './AdminMenu'
 import { Col, Row } from 'react-bootstrap'
+import ControllerMenu from './ControllerMenu'
+import AllUsers from '../AllUsers'
 
-const AdminDashboard = () => {
+const ControllerDashboard = () => {
   return (
-    <Layout title={"Admin Dashboard - GP_LACHWAI"}>
+    <Layout title={"Controller Dashboard - GP_LACHWAI"}>
       <div className='text-center'
-      ><h1>Admin Dashboard</h1>
+      ><h1>Controller Dashboard</h1>
         <hr />
       </div>
       <Row>
         <Col md={3}>
-          <AdminMenu />
+          <ControllerMenu />
         </Col>
       </Row>
     </Layout>
   )
 }
 
-export default AdminDashboard
+export default ControllerDashboard

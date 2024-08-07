@@ -32,10 +32,14 @@ const Login = () => {
     }, [loading, error, success, currentUser]);
 
 
-  const loginHandler = (e) => {
+    const loginHandler = (e) => {
         e.preventDefault();
+        console.log(loading)
         const user = { email, password };
         dispatch(loginUser(user));
+    }
+
+    if (success) {
         setTimeout(() => {
             window.location.href = '/';
         }, 3000);

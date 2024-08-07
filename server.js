@@ -23,6 +23,8 @@ app.use(morgan('dev'));
 
 //routes
 app.use('/api/users/', require('./routes/authRoute'));
+app.use('/api/users/', require('./routes/userRoute'));
+app.use('/api/users/', require('./routes/listRoute'));
 
 //rest api
 app.get('/', (req, res) => {
@@ -30,7 +32,7 @@ app.get('/', (req, res) => {
 });
 
 //PORT
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 5010;
 
 
 //RUN LISTEN
