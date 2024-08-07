@@ -26,11 +26,10 @@ app.use('/api/users/', require('./routes/authRoute'));
 app.use('/api/users/', require('./routes/userRoute'));
 app.use('/api/users/', require('./routes/listRoute'));
 
-//rest api
-app.get('/', (req, res) => {
-    res.send('<h1>Welcome To GP-LACHWAI</h1>');
-});
-
+app.use(express.static(path.join(__dirname, './client/build')));
+app.get('*', (req, res) =>{
+    res.sendFile(path.resolve(__dirname, "./client/build/index.html"))
+})
 //PORT
 const PORT = process.env.PORT || 5010;
 
