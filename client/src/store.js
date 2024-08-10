@@ -3,6 +3,8 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import {thunk} from 'redux-thunk';  // Corrected import
 import { getAllUsersReducer, loginUserReducer, registerUserReducer } from './reducers/userReducer';
 import { getHandpumpReducer, registerHandpumpReducer } from './reducers/handpumpReducers';
+import { visitorReducer } from './reducers/visitorReducer';
+import { getNotificationReducer, notificationReducer } from './reducers/notificationReducer';
 
 const rootReducer = combineReducers({
     registerUserReducer: registerUserReducer,
@@ -10,6 +12,9 @@ const rootReducer = combineReducers({
     getAllUsersReducer: getAllUsersReducer,
     registerHandpumpReducer: registerHandpumpReducer,
     getHandpumpReducer: getHandpumpReducer,
+    visitorReducer: visitorReducer,
+    notificationReducer: notificationReducer,
+    getNotificationReducer: getNotificationReducer,
     // other reducers can be added here
 });
 

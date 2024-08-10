@@ -26,6 +26,9 @@ app.use(morgan('dev'));
 app.use('/api/users/', require('./routes/authRoute'));
 app.use('/api/users/', require('./routes/userRoute'));
 app.use('/api/users/', require('./routes/listRoute'));
+app.use('/api/users/', require('./routes/notificationRoute'));
+app.use('/api/users/', require('./routes/meetingRoute'));
+app.use('/api/users/', require('./routes/visitorRoute'));
 
 app.use(express.static(path.join(__dirname, './client/build')));
 app.get('*', (req, res) =>{

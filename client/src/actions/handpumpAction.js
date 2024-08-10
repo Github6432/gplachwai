@@ -14,11 +14,8 @@ export const feedHandPump = (handpumpData) => async dispatch => {
 
 export const getAllHandPumpList = () => async dispatch => {
     dispatch({ type: 'GET_HANDPUMP_REQUEST' });
-    console.log('ok1')
     try {
-        console.log('ok2')
         const res = await axios.get('/api/users/handpumpreport');
-        console.log('ok3')
         dispatch({ type: 'GET_HANDPUMP_SUCCESS', payload:res.data});
     } catch (error) {
         dispatch({ type: 'GET_HANDPUMP_FAIL', payload: error.response.data.message });

@@ -50,13 +50,13 @@ const Register = () => {
             dispatch(registerUser(user))
         }
         if (success) {
-            // setTimeout(() => {
-            //     window.location.href = '/login';
-            // }, 3000);
+            setTimeout(() => {
+                window.location.href = '/login';
+            }, 3000);
         }
     }
     return (
-        <Layout title='Register - Ecommerce App'>
+        <Layout title='Register - GP Lachwai'>
             <div className="form-container">
                 <h1>REGISTER USER</h1>
                 <form>

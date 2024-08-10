@@ -4,6 +4,7 @@ import { AiFillDelete } from "react-icons/ai";
 import { Col, Container, Form, Row, Table } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux';
 import { deletehandPump, getAllHandPumpList } from '../actions/handpumpAction';
+import toast from 'react-hot-toast';
 
 const HandPumpList = () => {
   const dispatch = useDispatch();
@@ -14,13 +15,29 @@ const HandPumpList = () => {
     dispatch(getAllHandPumpList())
   }, [dispatch])
 
+  useEffect(() => {
+    if (loading) {
+        toast.loading('Finding HandPump List...');
+    } else {
+        toast.dismiss();
+    }
+
+    if (error) {
+        toast.error(error);
+    }
+
+    if (success) {
+        toast.success('Hand Pump List Find Successfully');
+    }
+}, [loading, error, success]);
+
 
   return (
     <Layout>
       <Container className="form-container">
         <Form >
           <Row>
-            <Col md={12}>
+            <Col md={9} className="mx-auto text-center">
               <h1>Handpump List</h1>
               <Table striped bordered hover>
                 <thead>

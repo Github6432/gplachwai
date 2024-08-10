@@ -15,6 +15,9 @@ import PrivateRoute from './components/Routes/PrivateRoute';
 import AllUsers from './pages/auth/AllUsers';
 import Handpump from './pages/Handpump';
 import HandPumpList from './pages/HandPumpList';
+import VisitorForm from './pages/VisitorForm';
+import NotificationForm from './pages/NotificationForm';
+import NotificationPage from './pages/NotificationPage';
 
 function App() {
   return (
@@ -29,6 +32,8 @@ function App() {
         <Route path='/contact' element={<Contact />} />
         <Route path='/policy' element={<Policy />} />
         <Route path='/handpumpreport' element={<HandPumpList />} />
+        <Route path='/visitor' element={<VisitorForm />} />
+        <Route path='/notification' element={<NotificationPage />} />
         <Route path='/*' element={<PageNotFound />} />
         <Route path='/admin' element={<PrivateRoute />}>
           <Route path='dashboard' element={<AdminDashboard />} />
@@ -39,6 +44,7 @@ function App() {
           <Route path='dashboard' element={<ControllerDashboard />} />
           <Route path='getallusers' element={<AllUsers />} />
           <Route path='handpump' element={<Handpump />} />
+          <Route path='notification' element={<NotificationForm />} />
         </Route>
       </Routes> 
 
