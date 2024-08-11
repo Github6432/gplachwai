@@ -1,24 +1,44 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { GiVillage } from "react-icons/gi";
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, Link } from 'react-router-dom';
 import { logoutUser } from '../../actions/userAction';
+import { getOfficeStatus, officeStatusUpdate } from '../../actions/visitorAction';
 
 const Header = () => {
-    const dispatch = useDispatch();
+    const dispatch = useDispatch('');
+    const [status, setStatus] = useState();
 
     const loginState = useSelector(state => state.loginUserReducer);
     const { currentUser } = loginState;
+    const officeState = useSelector(state => state.getOfficeStatusReducer);
+    const { officeStatus } = officeState;
 
+    useEffect(() => {
+        dispatch(getOfficeStatus());
+    }, [dispatch]);
+
+    const toggleStatus = () => {
+        if (!currentUser || currentUser.user.role !== 'controller') {
+            return;
+        }
+        dispatch(officeStatusUpdate()).then(() => {
+            dispatch(getOfficeStatus());
+        });
+    };
     return (
         <>
             <nav className="mx-3 navbar navbar-expand-lg bg-body-tertiary">
                 <div className="container-fluid">
+                    <Link to='/' className="navbar-brand"><h3> <GiVillage /> GP LACHWAI</h3></Link>
+                    <p style={{ marginTop: '5px', paddingTop: '10px', fontSize: '11px', color: 'red' }} onClick={toggleStatus}>
+                    { officeStatus }
+                    </p>
+
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon" />
                     </button>
                     <div className="collapse navbar-collapse mx-5 px-5" id="navbarTogglerDemo01">
-                        <Link to='/' className="navbar-brand"><h3> <GiVillage /> GP LACHWAI</h3></Link>
                         <ul className="navbar-nav ms-auto  mb-2 mb-lg-0">
                             <li className="nav-item">
                                 <NavLink to='/' className="nav-link">Home</NavLink>

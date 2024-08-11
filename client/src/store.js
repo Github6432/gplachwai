@@ -3,7 +3,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import {thunk} from 'redux-thunk';  // Corrected import
 import { getAllUsersReducer, loginUserReducer, registerUserReducer } from './reducers/userReducer';
 import { getHandpumpReducer, registerHandpumpReducer } from './reducers/handpumpReducers';
-import { visitorReducer } from './reducers/visitorReducer';
+import { getOfficeStatusReducer, officeStatusReducer, visitorReducer } from './reducers/visitorReducer';
 import { getNotificationReducer, notificationReducer } from './reducers/notificationReducer';
 
 const rootReducer = combineReducers({
@@ -15,6 +15,8 @@ const rootReducer = combineReducers({
     visitorReducer: visitorReducer,
     notificationReducer: notificationReducer,
     getNotificationReducer: getNotificationReducer,
+    officeStatusReducer: officeStatusReducer,
+    getOfficeStatusReducer: getOfficeStatusReducer,
     // other reducers can be added here
 });
 

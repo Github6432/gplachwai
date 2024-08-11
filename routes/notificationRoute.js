@@ -11,6 +11,6 @@ const router = express.Router();
 // router.post('/deleteuser', requireSignIn, isAdmin, isController, deleteUserController)
 //edit user //Method post
 router.post('/controller/notification',requireSignIn, isController, isAdmin, notificationController)
-router.get('/notification', requireSignIn, getNotificationController)
+router.get('/notification', getNotificationController)
 
 module.exports = router

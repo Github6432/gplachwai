@@ -42,30 +42,30 @@ const Homepage = () => {
       <Layout>
         {/* <pre style={{ whiteSpace: 'pre-wrap' }}>{JSON.stringify(loginState, null, 4)}</pre> */}
         <Container className="form-container">
-          <Row className='ml-5'>
+          <Row className=''>
             <Col md={9} className="mx-auto text-center">
               <h1>Home Page</h1>
               <Table striped bordered hover>
                 <thead>
                   <tr>
-                    <th>Sr. No.</th>
-                    <th>Village</th>
-                    <th>Information / Notice</th>
-                    <th>Advisory issued Office</th>
+                    <th style={{ fontSize: '11px' }}>Sr. No.</th>
+                    {/* <th style={{  fontSize: '13px' }}>Village</th> */}
+                    <th style={{ fontSize: '13px' }}>Information / Notice</th>
+                    <th style={{ fontSize: '12px' }}>Advisory issued Office</th>
                   </tr>
                 </thead>
                 <tbody>
                   {success && notifications && Array.isArray(notifications) && notifications.length > 0 && (
                     <tr key={notifications[notifications.length - 1]._id}>
-                      <td>{notifications.length}</td>
-                      <td>{notifications[notifications.length - 1].villageName}</td>
-                      <td>
+                      <td style={{ fontSize: '11px' }}>{notifications.length}</td>
+                      <td style={{ fontSize: '13px' }}>
                         <div className="text-left">{notifications[notifications.length - 1].notificationMessage}</div>
                         <div className='text-left'>
                           <p className='px-1' style={{ color: 'red', fontWeight: 'bold' }}>Date: {formatDate(notifications[notifications.length - 1].createdAt)}</p>
+                          <p className='px-1' style={{ color: 'red', fontWeight: 'bold' }}>{notifications[notifications.length - 1].villageName}</p>
                         </div>
                       </td>
-                      <td>{notifications[notifications.length - 1].Remark}</td>
+                      <td style={{ fontSize: '12px' }}>{notifications[notifications.length - 1].Remark}</td>
                     </tr>
                   )}
                 </tbody>

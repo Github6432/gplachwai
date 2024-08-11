@@ -40,35 +40,40 @@ const NotificationPage = () => {
         <Layout title='Notification - GP Lachwai'>
             <Container className="form-container">
                 <div >
-                    <Row className='ml-5'>
+                    <Row className=''>
                         <Col md={9} className="mx-auto text-center">
-                            <h1>Handpump List</h1>
-                            <Table striped bordered hover>
-                                <thead>
-                                    <tr>
-                                        <th>Sr. No.</th>
-                                        <th>Village</th>
-                                        <th>Information / Notice</th>
-                                        <th>Advisory issued Office</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {success && notifications && Array.isArray(notifications) &&
-                                        notifications.map((notification, i) => (
-                                            <tr key={notification._id}>
-                                                <td>{i + 1}</td>
-                                                <td>{notification.villageName}</td>
-                                                <td>
-                                                    <div className="text-left">{notification.notificationMessage}</div>
-                                                    <div className='text-left'>
-                                                        <p className='px-1' style={{ color: 'red', fontWeight: 'bold' }}>Date: {formatDate(notification.createdAt)}</p>
-                                                    </div>
-                                                </td>
-                                                <td>{notification.Remark}</td>
-                                            </tr>
-                                        ))}
-                                </tbody>
-                            </Table>
+                            <h1>Notification</h1>
+                            <div className="table-responsive" style={{}}>
+                                <Table striped bordered hover>
+                                    <thead>
+                                        <tr>
+                                            <th style={{ fontSize: '11px' }}>Sr. No.</th>
+                                            {/* <th style={{  fontSize: '13px' }}>Village</th> */}
+                                            <th style={{ fontSize: '13px' }}>Information / Notice</th>
+                                            <th style={{ fontSize: '12px' }}>Advisory issued Office</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {success && notifications && Array.isArray(notifications) &&
+                                            notifications.map((notification, i) => (
+                                                <tr key={notification._id}>
+                                                    <td style={{ fontSize: '11px' }}>{i + 1}</td>
+                                                    {/* <td style={{  fontSize: '13px' }}>{notification.villageName}</td> */}
+                                                    <td style={{ fontSize: '13px' }}>
+                                                        <div className="text-left">{notification.notificationMessage}</div>
+                                                        <div className='text-left'>
+                                                            <p className='px-1' style={{ color: 'red', fontWeight: 'bold', marginTop: '10px', marginBottom: 0 }}>Date: {formatDate(notification.createdAt)}</p>
+                                                            <p className='px-1' style={{ color: 'red' }}>{notifications[notifications.length - 1].villageName}</p>
+                                                        </div>
+                                                    </td>
+                                                    <td style={{ fontSize: '12px' }}>{notification.Remark}</td>
+                                                </tr>
+                                            ))}
+                                    </tbody>
+                                </Table>
+                            </div>
+
                         </Col>
                     </Row>
                 </div>
