@@ -9,7 +9,7 @@ const router = express.Router();
 //Get all user //Method get
 router.get('/controller/getallusers', requireSignIn, isAdmin, getAllUsersController)
 //delete user //Method post
-router.post('/deleteuser', requireSignIn, isAdmin, isController, deleteUserController)
+router.post('/deleteuser', requireSignIn, isController, isAdmin, deleteUserController)
 //edit user //Method post
 router.post('/edituser',requireSignIn, isAdmin, editUserController)
 
